@@ -23,12 +23,10 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install pyenv-virtualenv; fi
   
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-     "echo $HOME";
-     "ls $PWD";
       wget https://downloads.arduino.cc/arduino-$IDE_VERSION-macosx.zip;
       unzip arduino-$IDE_VERSION-macosx.zip;
-      sudo mv arduino-$IDE_VERSION /usr/local/share/arduino;
-      ls "$PWD";
+      mv arduino-$IDE_VERSION ~/Document;
+      ls ~/Document;
     fi
     
   #Install Arduino IDE
