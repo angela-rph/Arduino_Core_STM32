@@ -25,7 +25,8 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       wget https://downloads.arduino.cc/arduino-$IDE_VERSION-macosx.zip;
       unzip arduino-$IDE_VERSION-macosx.zip;
-      ls -a /Users/travis;
+      ls -a /Users/travis/Documents;
+      ls -a /Users/travis/Downloads;
     fi
     
   #Install Arduino IDE
