@@ -26,7 +26,7 @@ install:
   - sudo ln -s /home/travis/build/angela-rph/Arduino_Core_STM32/
 
 script:
-  - cp /home/travis/build/angela-rph/Arduino_Core_STM32/CI/conf/config-travis.json /home/travis/build/angela-rph/Arduino_Core_STM32/config.json
+  - cp /home/travis/build/angela-rph/Arduino_Core_STM32/CI/conf/config-travis.json /home/travis/build/angela-rph/Arduino_Core_STM32/CI/build/config.json
   - cd /home/travis/build/angela-rph/Arduino_Core_STM32/CI/build
   - python arduino-builder.py --travis
 
