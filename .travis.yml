@@ -1,1 +1,34 @@
 
+language: python
+python:
+  - "2.7"
+  - "3.6"
+os:
+  - linux
+env:
+  global:
+    - IDE_VERSION=1.8.5
+    
+before_install:
+  #Install Arduino IDE
+  - wget http://downloads.arduino.cc/arduino-$IDE_VERSION-linux64.tar.xz
+  - tar xf arduino-$IDE_VERSION-linux64.tar.xz #Extracting Arduino IDE
+  - sudo mv arduino-$IDE_VERSION /usr/local/share/arduino #Move Arduino IDE folder 
+  - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino #Link
+  - rm arduino-$IDE_VERSION-linux64.tar.xz #Remove tar folder
+  
+install:
+  #Install STM32duino Core
+  - arduino --save-prefs --pref "boardsmanager.additional.urls=https://github.com/stm32duino/BoardManagerFiles/raw/master/STM32/package_stm_index.json"
+  - arduino --install-boards STM32:stm32
+  - rm -r /home/travis/.arduino15/packages/STM32/hardware/stm32/1.3.0/
+  - cd /home/travis/.arduino15/packages/STM32/hardware/stm32/ 
+  - sudo ln -s /home/travis/build/angela-rph/Arduino_Core_STM32/
+
+script:
+  - cp /home/travis/build/angela-rph/Arduino_Core_STM32/CI/conf/config-travis.json /home/travis/build/angela-rph/Arduino_Core_STM32/config.json
+  - cd /home/travis/build/angela-rph/Arduino_Core_STM32/CI/build
+  - python arduino-builder.py --travis
+
+after_failure:
+  - echo " The build is failed. If script return a non-zero return status , we suggest you to take the above logs into consideration. Otherwise, consult the TRAVIS CI documentation to learn more about build failure" 
