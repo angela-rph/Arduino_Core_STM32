@@ -25,16 +25,15 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       wget https://downloads.arduino.cc/arduino-$IDE_VERSION-macosx.zip;
       unzip arduino-$IDE_VERSION-macosx.zip;
-      ls -a /Users/travis/Documents;
       ls -a /Users/travis/Downloads;
     fi
     
   #Install Arduino IDE
-  - wget http://downloads.arduino.cc/arduino-$IDE_VERSION-linux64.tar.xz
-  - tar xf arduino-$IDE_VERSION-linux64.tar.xz #Extracting Arduino IDE
-  - sudo mv arduino-$IDE_VERSION /usr/local/share/arduino #Move Arduino IDE folder 
-  - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino #Link
-  - rm arduino-$IDE_VERSION-linux64.tar.xz #Remove tar folder
+# - wget http://downloads.arduino.cc/arduino-$IDE_VERSION-linux64.tar.xz
+#  - tar xf arduino-$IDE_VERSION-linux64.tar.xz #Extracting Arduino IDE
+#  - sudo mv arduino-$IDE_VERSION /usr/local/share/arduino #Move Arduino IDE folder 
+#  - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino #Link
+ # - rm arduino-$IDE_VERSION-linux64.tar.xz #Remove tar folder
   
 install:
   #Install STM32duino Core
