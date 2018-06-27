@@ -32,3 +32,8 @@ script:
 
 after_failure:
   - echo " The build is failed. If script return a non-zero return status , we suggest you to take the above logs into consideration. Otherwise, consult the TRAVIS CI documentation to learn more about build failure" 
+
+notifications:
+  email:
+    on_success: change 
+    on_failure: always 
