@@ -28,7 +28,7 @@ install:
 script:
   - cp /home/travis/build/angela-rph/Arduino_Core_STM32/CI/conf/config-travis.json /home/travis/build/angela-rph/Arduino_Core_STM32/CI/build/config.json
   - cd /home/travis/build/angela-rph/Arduino_Core_STM32/CI/build
-  - python arduino-builder.py --travis
+  - python arduino-builder.py 
 
 after_failure:
   - echo " The build is failed. If script return a non-zero return status , we suggest you to take the above logs into consideration. Otherwise, consult the TRAVIS CI documentation to learn more about build failure" 
