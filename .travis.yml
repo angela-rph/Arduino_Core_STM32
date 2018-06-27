@@ -35,8 +35,5 @@ after_failure:
 
 notifications:
   email:
-    recipients:
-      - angela.randolph@st.com
-      - angela.randolph@reseau.eseo.fr
     on_success: change 
     on_failure: always 
