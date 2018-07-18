@@ -29,7 +29,8 @@ matrix:
       - core_version=${PWD##*/}
       - rm -r $HOME/.arduino15/packages/STM32/hardware/stm32/$core_version/
       - cd $HOME/.arduino15/packages/STM32/hardware/stm32/
-      - sudo ln -s $HOME/build/angela-rph/Test/
+      - sudo ln -s $TRAVIS_BUILD_DIR
+      - ls $HOME/.arduino15/packages/STM32/hardware/stm32/
     before_script:
       - cd $TRAVIS_BUILD_DIR
       - cp $TRAVIS_BUILD_DIR/CI/conf/config-travis.json  $TRAVIS_BUILD_DIR/config.json
