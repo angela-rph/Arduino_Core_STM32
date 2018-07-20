@@ -33,7 +33,7 @@ matrix:
       - ls $HOME/.arduino15/packages/STM32/hardware/stm32/
     before_script:
       - cd $TRAVIS_BUILD_DIR/CI/build/
-      - cp $TRAVIS_BUILD_DIR/CI/conf/config-travis.json ./config.json
+      - cp $TRAVIS_BUILD_DIR/CI/conf/path_config_travis.json ./path_config.json
     script: 
       - python arduino-builder.py --travis
 
