@@ -32,9 +32,8 @@ matrix:
       - sudo ln -s $TRAVIS_BUILD_DIR
       - ls $HOME/.arduino15/packages/STM32/hardware/stm32/
     before_script:
-      - cd $TRAVIS_BUILD_DIR/CI/build/
       - cp $TRAVIS_BUILD_DIR/CI/conf/config-travis.json  $TRAVIS_BUILD_DIR/config.json
-      - cat config.json
+      - cd $TRAVIS_BUILD_DIR/CI/build/
     script: 
       - python arduino-builder.py --travis -b blue -s blINk
 
