@@ -34,8 +34,7 @@ matrix:
     before_script:
       - cd $TRAVIS_BUILD_DIR/CI/build/
       - cp $TRAVIS_BUILD_DIR/CI/conf/config-travis.json  $TRAVIS_BUILD_DIR/config.json
-      - ls $TRAVIS_BUILD_DIR/CI/build/
-      - ls $TRAVIS_BUILD_DIR
+      - cat config.json
     script: 
       - python arduino-builder.py --travis -b blue -s blINk
 
