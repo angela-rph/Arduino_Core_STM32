@@ -4,13 +4,11 @@ python:
   - "3.6"
 os:
   - linux
-env:
-  global:
-    - IDE_VERSION=1.8.5
 matrix: 
   include:
   - env:
       - NAME= arduinoCI
+      - IDE_VERSION=1.8.5
       - ARDUINO_IDE_PATH=$HOME/IDE/arduino
     install: 
     #Install Arduino IDE
