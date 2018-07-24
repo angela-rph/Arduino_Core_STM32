@@ -350,6 +350,20 @@ Disco.menu.pnum.DISCO_F100RB.build.product_line=STM32F100xB
 Disco.menu.pnum.DISCO_F100RB.build.variant=DISCO_F100RB
 Disco.menu.pnum.DISCO_F100RB.build.cmsis_lib_gcc=arm_cortexM3l_math
 
+#DISCO_BADF100RB board
+Disco.menu.pnum.DISCO_BADF100RB=STM32F100RB-DISCVL-BAD
+Disco.menu.pnum.DISCO_BADF100RB.node=DIS_F100RB
+Disco.menu.pnum.DISCO_BADF100RB.upload.maximum_size=131071
+Disco.menu.pnum.DISCO_BADF100RB.upload.maximum_data_size=8192
+Disco.menu.pnum.DISCO_BADF100RB.build.mcu=cortex-m3
+Disco.menu.pnum.DISCO_BADF100RB.build.board=DISCO_F100RB
+Disco.menu.pnum.DISCO_BADF100RB.build.series=STM32F1xx
+Disco.menu.pnum.DISCO_BADF100RB.build.product_line=STM32F100xB
+Disco.menu.pnum.DISCO_BADF100RB.build.variant=DISCO_BADF100RB
+Disco.menu.pnum.DISCO_BADF100RB.build.cmsis_lib_gcc=arm_cortexM3l_math
+
+
+
 # DISCO_F407VG board
 # Support: USB HID
 Disco.menu.pnum.DISCO_F407VG=STM32F407G-DISC1
