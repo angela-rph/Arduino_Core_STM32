@@ -1,7 +1,7 @@
 
 language: python
 python:
-  - "2.7"
+  - "3.6"
 os:
   - linux
 env:
@@ -11,26 +11,20 @@ matrix:
   include:
   - env:
       - NAME= arduinoCI
-    python:
-      - "3.6"
+      - ARDUINO_IDE_PATH=$HOME/IDE/arduino
     install: 
     #Install Arduino IDE
-      - mkdir -p $HOME/IDE/arduino
-      - cd $HOME/IDE
+      - mkdir -p $ARDUINO_IDE_PATH
       - wget http://downloads.arduino.cc/arduino-$IDE_VERSION-linux64.tar.xz #Downloading Arduino IDE from arduino.cc
-      - tar xf arduino-$IDE_VERSION-linux64.tar.xz #Extracting Arduino IDE
-      - mv ./arduino-$IDE_VERSION/* ./arduino
+      - tar xf arduino-$IDE_VERSION-linux64.tar.xz --strip-components=1 -C $ARDUINO_IDE_PATH #Extracting Arduino IDE
       - rm arduino-$IDE_VERSION-linux64.tar.xz #Remove tar folder  
     #Install STM32duino Core
-      - cd ./arduino/
+      - cd $ARDUINO_IDE_PATH
       - ./arduino --save-prefs --pref "boardsmanager.additional.urls=https://github.com/stm32duino/BoardManagerFiles/raw/master/STM32/package_stm_index.json"
       - ./arduino --install-boards STM32:stm32
-      - cd $HOME/.arduino15/packages/STM32/hardware/stm32/*
-      - core_version=${PWD##*/}
-      - rm -r $HOME/.arduino15/packages/STM32/hardware/stm32/$core_version/
-      - cd $HOME/.arduino15/packages/STM32/hardware/stm32/
-      - sudo ln -s $TRAVIS_BUILD_DIR
-      - ls $HOME/.arduino15/packages/STM32/hardware/stm32/
+      - rm -fr $HOME/.arduino15/packages/STM32/hardware/stm32/*
+      - sudo ln -s $TRAVIS_BUILD_DIR $HOME/.arduino15/packages/STM32/hardware/stm32/*
+      - ls $HOME/.arduino15/packages/STM32/hardware/stm32/*
     before_script:
       - cd $TRAVIS_BUILD_DIR/CI/build/
       - cp ./conf/path_config_travis.json ./path_config.json
